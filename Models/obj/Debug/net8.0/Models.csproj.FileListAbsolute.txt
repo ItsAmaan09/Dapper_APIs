@@ -1,0 +1,11 @@
+E:\Mohammed Amaan's\Dotnet Projects\WebAPI_Projects\DapperCRUD\Models\bin\Debug\net8.0\Models.deps.json
+e:\Mohammed Amaan's\Dotnet Projects\WebAPI_Projects\DapperCRUD\Models\bin\Debug\net8.0\Models.dll
+e:\Mohammed Amaan's\Dotnet Projects\WebAPI_Projects\DapperCRUD\Models\bin\Debug\net8.0\Models.pdb
+e:\Mohammed Amaan's\Dotnet Projects\WebAPI_Projects\DapperCRUD\Models\obj\Debug\net8.0\Models.GeneratedMSBuildEditorConfig.editorconfig
+e:\Mohammed Amaan's\Dotnet Projects\WebAPI_Projects\DapperCRUD\Models\obj\Debug\net8.0\Models.AssemblyInfoInputs.cache
+e:\Mohammed Amaan's\Dotnet Projects\WebAPI_Projects\DapperCRUD\Models\obj\Debug\net8.0\Models.AssemblyInfo.cs
+e:\Mohammed Amaan's\Dotnet Projects\WebAPI_Projects\DapperCRUD\Models\obj\Debug\net8.0\Models.csproj.CoreCompileInputs.cache
+e:\Mohammed Amaan's\Dotnet Projects\WebAPI_Projects\DapperCRUD\Models\obj\Debug\net8.0\Models.dll
+e:\Mohammed Amaan's\Dotnet Projects\WebAPI_Projects\DapperCRUD\Models\obj\Debug\net8.0\refint\Models.dll
+e:\Mohammed Amaan's\Dotnet Projects\WebAPI_Projects\DapperCRUD\Models\obj\Debug\net8.0\Models.pdb
+E:\Mohammed Amaan's\Dotnet Projects\WebAPI_Projects\DapperCRUD\Models\obj\Debug\net8.0\ref\Models.dll

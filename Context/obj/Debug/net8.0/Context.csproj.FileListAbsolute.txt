@@ -1,0 +1,12 @@
+E:\Mohammed Amaan's\Dotnet Projects\WebAPI_Projects\DapperCRUD\Context\bin\Debug\net8.0\Context.deps.json
+e:\Mohammed Amaan's\Dotnet Projects\WebAPI_Projects\DapperCRUD\Context\bin\Debug\net8.0\Context.dll
+e:\Mohammed Amaan's\Dotnet Projects\WebAPI_Projects\DapperCRUD\Context\bin\Debug\net8.0\Context.pdb
+e:\Mohammed Amaan's\Dotnet Projects\WebAPI_Projects\DapperCRUD\Context\obj\Debug\net8.0\Context.csproj.AssemblyReference.cache
+e:\Mohammed Amaan's\Dotnet Projects\WebAPI_Projects\DapperCRUD\Context\obj\Debug\net8.0\Context.GeneratedMSBuildEditorConfig.editorconfig
+e:\Mohammed Amaan's\Dotnet Projects\WebAPI_Projects\DapperCRUD\Context\obj\Debug\net8.0\Context.AssemblyInfoInputs.cache
+e:\Mohammed Amaan's\Dotnet Projects\WebAPI_Projects\DapperCRUD\Context\obj\Debug\net8.0\Context.AssemblyInfo.cs
+e:\Mohammed Amaan's\Dotnet Projects\WebAPI_Projects\DapperCRUD\Context\obj\Debug\net8.0\Context.csproj.CoreCompileInputs.cache
+e:\Mohammed Amaan's\Dotnet Projects\WebAPI_Projects\DapperCRUD\Context\obj\Debug\net8.0\Context.dll
+e:\Mohammed Amaan's\Dotnet Projects\WebAPI_Projects\DapperCRUD\Context\obj\Debug\net8.0\refint\Context.dll
+e:\Mohammed Amaan's\Dotnet Projects\WebAPI_Projects\DapperCRUD\Context\obj\Debug\net8.0\Context.pdb
+E:\Mohammed Amaan's\Dotnet Projects\WebAPI_Projects\DapperCRUD\Context\obj\Debug\net8.0\ref\Context.dll
