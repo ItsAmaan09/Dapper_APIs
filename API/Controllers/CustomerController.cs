@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DAPPERCRUD;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
 	[ApiController]
 	[Route("api/v1/[controller]")]
+	[Authorize]
 	public class CustomerController : ControllerBase
 	{
 		private readonly CustomerManager _customerManager;
