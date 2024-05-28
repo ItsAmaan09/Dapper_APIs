@@ -8,9 +8,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
+	[Authorize]
 	[ApiController]
 	[Route("api/v1/[controller]")]
-	[Authorize]
 	public class CustomerController : ControllerBase
 	{
 		private readonly CustomerManager _customerManager;
