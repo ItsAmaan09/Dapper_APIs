@@ -20,7 +20,7 @@ builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 
 builder.Services.AddScoped<CustomerManager>();
 
-var key = Encoding.ASCII.GetBytes("0000000000000000");
+var key = Encoding.ASCII.GetBytes("MOHAMMED AMAAN INAM");
 builder.Services.AddAuthentication(options =>
 {
 	options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

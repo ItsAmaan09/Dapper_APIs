@@ -23,7 +23,7 @@ namespace API.Controllers
 
 			// Generate JWT token
 			var tokenHandler = new JwtSecurityTokenHandler();
-			var key = Encoding.ASCII.GetBytes("0000000000000000");
+			var key = Encoding.ASCII.GetBytes("MOHAMMED AMAAN INAM");
 			var tokenDescriptor = new SecurityTokenDescriptor
 			{
 				Subject = new ClaimsIdentity(new Claim[]
