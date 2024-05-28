@@ -16,11 +16,11 @@ namespace DAPPERCRUD
 			_userManager = userManager;
 		}
 		[HttpGet]
-		public IActionResult GetUsers()
+		public async Task<IActionResult> GetUsers()
 		{
 			try
 			{
-				var response = _userManager.GetUsers();
+				var response = await _userManager.GetUsers();
 				return Ok(response);
 			}
 			catch (System.Exception ex)
