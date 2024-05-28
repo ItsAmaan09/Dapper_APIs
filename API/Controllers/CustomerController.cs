@@ -6,7 +6,7 @@ using DAPPERCRUD;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace API.Controllers
+namespace DAPPERCRUD
 {
 	[Authorize]
 	[ApiController]

@@ -14,8 +14,10 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddSingleton<DapperContext>();
 builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 builder.Services.AddScoped<CustomerManager>();
+builder.Services.AddScoped<UserManager>();
 var key = Encoding.ASCII.GetBytes("this_is_a_very_secure_key_that_is_at_least_32_bytes_long!");
 builder.Services.AddAuthentication(options =>
 {

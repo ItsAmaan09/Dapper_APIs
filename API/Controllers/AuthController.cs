@@ -5,7 +5,7 @@ using System.Text;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 
-namespace API.Controllers
+namespace DAPPERCRUD
 {
 	[ApiController]
 	[Route("api/v1/[controller]")]
