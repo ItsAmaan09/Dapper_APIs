@@ -41,5 +41,19 @@ namespace DAPPERCRUD
 				return BadRequest(ex.Message);
 			}
 		}
+		[HttpPost]
+		public async Task<IActionResult> AddUser(User user)
+		{
+			try
+			{
+				var response = await _userManager.AddUser(user);
+				return Ok(response);
+			}
+			catch (System.Exception ex)
+			{
+				return BadRequest(ex);
+				throw;
+			}
+		}
 	}
 }
