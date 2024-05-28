@@ -4,6 +4,18 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Add services to the container.
+
+
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
+builder.Services.AddSingleton<DapperContext>();
+builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
+
+builder.Services.AddScoped<CustomerManager>();
 var key = Encoding.ASCII.GetBytes("this_is_a_very_secure_key_that_is_at_least_32_bytes_long!");
 builder.Services.AddAuthentication(options =>
 {
@@ -22,23 +34,12 @@ builder.Services.AddAuthentication(options =>
 		IssuerSigningKey = new SymmetricSecurityKey(key)
 	};
 });
-// Add services to the container.
 builder.Services.AddAuthorization();
 builder.Services.AddControllers();
 builder.Services.AddControllers().AddJsonOptions(options =>
 {
 	options.JsonSerializerOptions.PropertyNamingPolicy = null;
 });
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-builder.Services.AddSingleton<DapperContext>();
-builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
-
-builder.Services.AddScoped<CustomerManager>();
-
-
 
 var app = builder.Build();
 
@@ -50,7 +51,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 

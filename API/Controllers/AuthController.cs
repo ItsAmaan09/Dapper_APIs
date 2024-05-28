@@ -27,7 +27,7 @@ namespace API.Controllers
 				{
 					new Claim(ClaimTypes.Name, model.Username)
 				}),
-				Expires = DateTime.UtcNow.AddMinutes(360),
+				Expires = DateTime.UtcNow.AddHours(1),
 				SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),
 				Issuer="WHY NOT",
 				Audience="WHY NOT"
