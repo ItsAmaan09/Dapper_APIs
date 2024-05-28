@@ -23,5 +23,14 @@ namespace DAPPERCRUD
 				return users.ToList();
 			}
 		}
+		public async Task<User> GetUserDetails(int UserID)
+		{
+			var query = "SELECT * FROM Users WHERE UserID = @UserID";
+			using (var connection = _context.CreateConnection())
+			{
+				var user = await connection.QuerySingleOrDefaultAsync<User>(query,new {UserID});
+				return user;
+			}
+		}
 	}
 }

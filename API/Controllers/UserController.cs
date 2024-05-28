@@ -28,5 +28,18 @@ namespace DAPPERCRUD
 				return BadRequest(ex.Message);
 			}
 		}
+		[HttpGet("{id}")]
+		public async Task<IActionResult> GetUserDetails(int id)
+		{
+			try
+			{
+				var response = await _userManager.GetUserDetails(id);
+				return Ok(response);
+			}
+			catch (System.Exception ex)
+			{
+				return BadRequest(ex.Message);
+			}
+		}
 	}
 }

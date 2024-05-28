@@ -17,5 +17,10 @@ namespace DAPPERCRUD
 			var users = await _userRepository.GetUsers();
 			return users.ToList();
 		}
+		public async Task<User> GetUserDetails(int id)
+		{
+			var user = await _userRepository.GetUserDetails(id);
+			return user;
+		}
 	}
 }
