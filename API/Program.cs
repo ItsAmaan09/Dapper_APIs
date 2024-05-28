@@ -20,7 +20,7 @@ builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 
 builder.Services.AddScoped<CustomerManager>();
 
-var key = Encoding.ASCII.GetBytes("MOHAMMED AMAAN INAM");
+var key = Encoding.ASCII.GetBytes("this_is_a_very_secure_key_that_is_at_least_32_bytes_long!");
 builder.Services.AddAuthentication(options =>
 {
 	options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -33,8 +33,8 @@ builder.Services.AddAuthentication(options =>
 		ValidateAudience = true,
 		ValidateLifetime = true,
 		ValidateIssuerSigningKey = true,
-		ValidIssuer = "your_issuer_here",
-		ValidAudience = "your_audience_here",
+		ValidIssuer = "WHY NOT",
+		ValidAudience = "WHY NOT",
 		IssuerSigningKey = new SymmetricSecurityKey(key)
 	};
 });
