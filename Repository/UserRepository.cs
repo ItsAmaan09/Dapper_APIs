@@ -33,6 +33,15 @@ namespace DAPPERCRUD
 				return user;
 			}
 		}
+		public async Task<User> GetUserByUsername(string UserName)
+		{
+			var query = "SELECT * FROM Users WHERE UserName = @UserName";
+			using (var connection = _context.CreateConnection())
+			{
+				var user = await connection.QuerySingleOrDefaultAsync<User>(query, new { UserName });
+				return user;
+			}
+		}
 		public async Task<User> AddUser(User user)
 		{
 			var query = "INSERT INTO Users (UserName,FirstName,LastName,Gender,EmailAddress,MobileNumber,IsActive,IsDeleted,CreatedBy,CreatedOn,ModifiedBy,ModifiedOn) VALUES (@UserName,@FirstName,@LastName,@Gender,@EmailAddress,@MobileNumber,1,0,@CreatedBy,@CreatedOn,@ModifiedBy,@ModifiedOn)" +

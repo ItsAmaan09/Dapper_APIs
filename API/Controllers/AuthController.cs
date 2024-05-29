@@ -11,37 +11,42 @@ namespace DAPPERCRUD
 	[Route("api/v1/[controller]")]
 	public class AuthController : ControllerBase
 	{
-		[HttpPost("Login")]
-		public IActionResult Login(UserLogin model)
+		private readonly UserManager _userManager;
+		public AuthController(UserManager userManager)
 		{
-			// Validate user credentials (this is just a demo, so we will skip actual validation)
-			if (model.Username != "test" || model.Password != "password")
-				return Unauthorized();
-
-			// Generate JWT token
-			var tokenHandler = new JwtSecurityTokenHandler();
-			var key = Encoding.ASCII.GetBytes("this_is_a_very_secure_key_that_is_at_least_32_bytes_long!");
-			var tokenDescriptor = new SecurityTokenDescriptor
-			{
-				Subject = new ClaimsIdentity(new Claim[]
-				{
-					new Claim(ClaimTypes.Name, model.Username)
-				}),
-				Expires = DateTime.UtcNow.AddHours(1),
-				SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),
-				Issuer="WHY NOT",
-				Audience="WHY NOT"
-			};
-			var token = tokenHandler.CreateToken(tokenDescriptor);
-			var tokenString = tokenHandler.WriteToken(token);
-
-			return Ok(tokenString);
+			_userManager = userManager;
 		}
-	}
+		[HttpPost("Login")]
+		public async Task<IActionResult> Login(UserLogin model)
+		{
+			try
+			{
+				var isUserVerified = await _userManager.IsUserVerified(model);
+				if (!isUserVerified) { return Unauthorized(); }
 
-	public class UserLogin
-	{
-		public string Username { get; set; }
-		public string Password { get; set; }
+				var tokenHandler = new JwtSecurityTokenHandler();
+				var key = Encoding.ASCII.GetBytes("this_is_a_very_secure_key_that_is_at_least_32_bytes_long!");
+				var tokenDescriptor = new SecurityTokenDescriptor
+				{
+					Subject = new ClaimsIdentity(new Claim[]
+					{
+					new Claim(ClaimTypes.Name, model.Username)
+					}),
+					Expires = DateTime.UtcNow.AddHours(1),
+					SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),
+					Issuer = "WHY NOT",
+					Audience = "WHY NOT"
+				};
+				var token = tokenHandler.CreateToken(tokenDescriptor);
+				var tokenString = tokenHandler.WriteToken(token);
+
+				return Ok(tokenString);
+			}
+			catch (System.Exception ex)
+			{
+				return BadRequest(ex.Message);
+			}
+
+		}
 	}
 }
