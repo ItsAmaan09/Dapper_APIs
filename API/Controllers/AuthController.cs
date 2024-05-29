@@ -21,9 +21,7 @@ namespace DAPPERCRUD
 		{
 			try
 			{
-				var isUserVerified = await _userManager.IsUserVerified(model);
-				if (!isUserVerified) { return Unauthorized(); }
-
+				await _userManager.IsUserVerified(model);
 				var tokenHandler = new JwtSecurityTokenHandler();
 				var key = Encoding.ASCII.GetBytes("this_is_a_very_secure_key_that_is_at_least_32_bytes_long!");
 				var tokenDescriptor = new SecurityTokenDescriptor

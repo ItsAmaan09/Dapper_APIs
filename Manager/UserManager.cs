@@ -35,18 +35,15 @@ namespace DAPPERCRUD
 			return userCreated;
 		}
 
-		public async Task<bool> IsUserVerified(UserLogin userLogin)
+		public async Task IsUserVerified(UserLogin userLogin)
 		{
-			bool result = false;
 			var user = await GetUserByUsername(userLogin.Username);
 			if (user == null) { throw new Exception("User not found"); }
 			else
 			{
-				result = await _userPasswordManager.ValidateUserCredentials(user.UserID, userLogin.Password);
+				var result = await _userPasswordManager.ValidateUserCredentials(user.UserID, userLogin.Password);
 				if (!result) { throw new Exception("Password is invalid"); }
 			}
-
-			return result;
 		}
 	}
 }
