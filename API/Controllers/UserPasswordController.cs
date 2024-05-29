@@ -1,0 +1,43 @@
+
+using Microsoft.AspNetCore.Mvc;
+
+namespace DAPPERCRUD
+{
+	[ApiController]
+	[Route("api/v1/[controller]")]
+	public class UserPasswordController : ControllerBase
+	{
+		private readonly UserPasswordManager _userPasswordManager;
+		public UserPasswordController(UserPasswordManager userPasswordManager)
+		{
+			_userPasswordManager = userPasswordManager;
+		}
+
+		[HttpGet("{id}")]
+		public async Task<IActionResult> GetUserPassword(int id)
+		{
+			try
+			{
+				var response = await _userPasswordManager.GetUserPassword(id);
+				return Ok(response);
+			}
+			catch (System.Exception ex)
+			{
+				return BadRequest(ex.Message);
+			}
+		}
+		[HttpPost]
+		public async Task<IActionResult> CreatePassword(UserPassword userPassword)
+		{
+			try
+			{
+				var response = await _userPasswordManager.CreatePassword(userPassword);
+				return Ok(response);
+			}
+			catch (System.Exception ex)
+			{
+				return BadRequest(ex.Message);
+			}
+		}
+	}
+}

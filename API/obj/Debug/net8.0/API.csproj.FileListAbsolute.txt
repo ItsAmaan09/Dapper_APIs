@@ -156,3 +156,4 @@ e:\Mohammed Amaan's\Dotnet Projects\WebAPI_Projects\Dapper_APIs\API\obj\Debug\ne
 e:\Mohammed Amaan's\Dotnet Projects\WebAPI_Projects\Dapper_APIs\API\obj\Debug\net8.0\API.pdb
 e:\Mohammed Amaan's\Dotnet Projects\WebAPI_Projects\Dapper_APIs\API\obj\Debug\net8.0\API.genruntimeconfig.cache
 e:\Mohammed Amaan's\Dotnet Projects\WebAPI_Projects\Dapper_APIs\API\obj\Debug\net8.0\ref\API.dll
+e:\Mohammed Amaan's\Dotnet Projects\WebAPI_Projects\Dapper_APIs\API\bin\Debug\net8.0\BCrypt.Net-Next.dll

@@ -35,7 +35,7 @@ namespace DAPPERCRUD
 		}
 		public async Task<User> AddUser(User user)
 		{
-			var query = "INSERT INTO Users (UserName,FirstName,LastName,Gender,EmailAddress,MobileNumber) VALUES (@UserName,@FirstName,@LastName,@Gender,@EmailAddress,@MobileNumber)" +
+			var query = "INSERT INTO Users (UserName,FirstName,LastName,Gender,EmailAddress,MobileNumber,IsActive,IsDeleted,CreatedBy,CreatedOn,ModifiedBy,ModifiedOn) VALUES (@UserName,@FirstName,@LastName,@Gender,@EmailAddress,@MobileNumber,1,0,@CreatedBy,@CreatedOn,@ModifiedBy,@ModifiedOn)" +
 			"SELECT CAST(SCOPE_IDENTITY() as int)";
 			var parameters = new DynamicParameters();
 			parameters.Add("UserName", user.UserName, DbType.String);
@@ -44,6 +44,10 @@ namespace DAPPERCRUD
 			parameters.Add("Gender", user.Gender, DbType.String);
 			parameters.Add("EmailAddress", user.EmailAddress, DbType.String);
 			parameters.Add("MobileNumber", user.MobileNumber, DbType.String);
+			parameters.Add("CreatedBy","MA",DbType.String);
+			parameters.Add("CreatedOn",DateTime.Now,DbType.DateTime);
+			parameters.Add("ModifiedBy",null,DbType.String);
+			parameters.Add("ModifiedOn",null,DbType.DateTime);
 
 			using (var connection = _context.CreateConnection())
 			{
