@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ETdjyJ2phW3jwndWrb99O04UQHNsNrUgoT+TglsfZKzfV9R6+FFsIqVpm/9MABa5akzrR4ho85uleBAUUcYKLw==",
+  "dgSpecHash": "yThst+/s0g0CZyQxR93EKj1cZCK3dPEjq2R2GQtc80sGMJPkTGWD1Tb3hRT+fbAP9kJWnJo25N10hIHI+iQ0vQ==",
   "success": true,
-  "projectFilePath": "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Manager\\Manager.csproj",
+  "projectFilePath": "e:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Manager\\Manager.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Amaan\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Amaan\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

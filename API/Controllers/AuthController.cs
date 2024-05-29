@@ -2,6 +2,7 @@ using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 
@@ -11,31 +12,40 @@ namespace DAPPERCRUD
 	[Route("api/v1/[controller]")]
 	public class AuthController : ControllerBase
 	{
+		IConfiguration _configuration;
 		private readonly UserManager _userManager;
-		public AuthController(UserManager userManager)
+		public AuthController(UserManager userManager, IConfiguration configuration)
 		{
 			_userManager = userManager;
+			_configuration = configuration;
 		}
+
+		[AllowAnonymous]
 		[HttpPost("Login")]
 		public async Task<IActionResult> Login(UserLogin model)
 		{
 			try
 			{
 				await _userManager.IsUserVerified(model);
-				var tokenHandler = new JwtSecurityTokenHandler();
-				var key = Encoding.ASCII.GetBytes("this_is_a_very_secure_key_that_is_at_least_32_bytes_long!");
+
+				var key = Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]);
+
 				var tokenDescriptor = new SecurityTokenDescriptor
 				{
 					Subject = new ClaimsIdentity(new Claim[]
 					{
-					new Claim(ClaimTypes.Name, model.Username)
+						new Claim(ClaimTypes.Name, model.Username)
 					}),
 					Expires = DateTime.UtcNow.AddHours(1),
 					SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),
-					Issuer = "WHY NOT",
-					Audience = "WHY NOT"
+					Issuer = _configuration["Jwt:Issuer"],
+					Audience = _configuration["Jwt:Audience"]
 				};
+
+				var tokenHandler = new JwtSecurityTokenHandler();
+
 				var token = tokenHandler.CreateToken(tokenDescriptor);
+
 				var tokenString = tokenHandler.WriteToken(token);
 
 				return Ok(tokenString);
