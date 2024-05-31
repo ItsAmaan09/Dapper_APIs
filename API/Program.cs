@@ -18,14 +18,17 @@ builder.Services.AddAuthentication(options =>
 {
 	options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
 	options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+	options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
 }).AddJwtBearer(options =>
 {
+	options.SaveToken = true;
+	options.RequireHttpsMetadata = false;
 	options.TokenValidationParameters = new TokenValidationParameters
 	{
 		ValidateIssuer = true,
 		ValidateAudience = true,
-		ValidateLifetime = false,
-		ValidateIssuerSigningKey = true,
+		// ValidateLifetime = false,
+		// ValidateIssuerSigningKey = true,
 		ValidIssuer = builder.Configuration["Jwt:Issuer"],
 		ValidAudience = builder.Configuration["Jwt:Audience"],
 		IssuerSigningKey = new SymmetricSecurityKey(key)

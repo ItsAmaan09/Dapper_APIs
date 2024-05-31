@@ -9,10 +9,12 @@ namespace DAPPERCRUD
 {
 	public class UserPasswordManager
 	{
-		private readonly IUserPasswordRepository _userPasswordRepository;
-		public UserPasswordManager(IUserPasswordRepository userPasswordRepository)
+		private IUserPasswordRepository _userPasswordRepository;
+		private readonly UserManager _userManager;
+		public UserPasswordManager(IUserPasswordRepository userPasswordRepository, UserManager userManager)
 		{
 			_userPasswordRepository = userPasswordRepository;
+			_userManager = userManager;
 		}
 		public async Task<UserPassword> GetUserPassword(int id)
 		{
@@ -23,10 +25,10 @@ namespace DAPPERCRUD
 		{
 			try
 			{
-				// if (IsUserExists(userPassword))
-				// {
-
-				// }
+				if (!await IsUserExists(userPassword))
+				{
+					throw new Exception("User not found");
+				}
 				userPassword.Password = passwordHash(userPassword.Password);
 				var id = await _userPasswordRepository.CreatePassword(userPassword);
 				return id;
@@ -37,26 +39,28 @@ namespace DAPPERCRUD
 			}
 		}
 
-		// public bool IsUserExists(UserPassword userPassword)
-		// {
-		// 	return true;
-		// }
+		public async Task<bool> IsUserExists(UserPassword userPassword)
+		{
+			var result = await _userManager.GetUserDetails(userPassword.UserID);
+			if (result == null) { return false; }
+			return true;
+		}
 
 		public string passwordHash(string password)
 		{
 			password = BCrypt.Net.BCrypt.HashPassword(password);
 			return password;
 		}
-		public bool verifyPassword(string enteredPassword,string storedHashedPassword)
+		public bool verifyPassword(string enteredPassword, string storedHashedPassword)
 		{
-			return BCrypt.Net.BCrypt.Verify(enteredPassword,storedHashedPassword);
+			return BCrypt.Net.BCrypt.Verify(enteredPassword, storedHashedPassword);
 		}
 
-		public async Task<bool> ValidateUserCredentials(int userID,string enteredPassword)
+		public async Task<bool> ValidateUserCredentials(int userID, string enteredPassword)
 		{
 			var userPassword = await GetUserPassword(userID);
-			if(userPassword == null) { return false; }
-			bool isPasswordValid = verifyPassword(enteredPassword,userPassword.Password);
+			if (userPassword == null) { return false; }
+			bool isPasswordValid = verifyPassword(enteredPassword, userPassword.Password);
 			return isPasswordValid;
 		}
 	}
