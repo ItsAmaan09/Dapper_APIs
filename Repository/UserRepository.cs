@@ -5,20 +5,22 @@ using System.Linq;
 using System.Threading.Tasks;
 using Dapper;
 using DAPPERCRUD;
+using Microsoft.Data.SqlClient;
 
 namespace DAPPERCRUD
 {
 	public class UserRepository : IUserRepository
 	{
-		private readonly DapperContext _context;
-		public UserRepository(DapperContext context)
+		// private readonly DapperContext _context;
+		private readonly string connectionString = string.Empty;
+		public UserRepository()
 		{
-			_context = context;
+			this.connectionString = DapperContext.Instance.GetDatabaseConnectionString();
 		}
 		public async Task<IEnumerable<User>> GetUsers()
 		{
 			var query = "SELECT * FROM Users";
-			using (var connection = _context.CreateConnection())
+			using (var connection = new SqlConnection(this.connectionString))
 			{
 				var users = await connection.QueryAsync<User>(query);
 				return users.ToList();
@@ -27,7 +29,7 @@ namespace DAPPERCRUD
 		public async Task<User> GetUserDetails(int UserID)
 		{
 			var query = "SELECT * FROM Users WHERE UserID = @UserID";
-			using (var connection = _context.CreateConnection())
+			using (var connection = new SqlConnection(this.connectionString))
 			{
 				var user = await connection.QuerySingleOrDefaultAsync<User>(query, new { UserID });
 				return user;
@@ -36,7 +38,7 @@ namespace DAPPERCRUD
 		public async Task<User> GetUserByUsername(string UserName)
 		{
 			var query = "SELECT * FROM Users WHERE UserName = @UserName";
-			using (var connection = _context.CreateConnection())
+			using (var connection = new SqlConnection(this.connectionString))
 			{
 				var user = await connection.QuerySingleOrDefaultAsync<User>(query, new { UserName });
 				return user;
@@ -58,7 +60,7 @@ namespace DAPPERCRUD
 			parameters.Add("ModifiedBy",null,DbType.String);
 			parameters.Add("ModifiedOn",null,DbType.DateTime);
 
-			using (var connection = _context.CreateConnection())
+			using (var connection = new SqlConnection(this.connectionString))
 			{
 				int id = await connection.QuerySingleAsync<int>(query, parameters);
 

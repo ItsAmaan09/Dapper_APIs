@@ -3,22 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Dapper;
+using Microsoft.Data.SqlClient;
 
 namespace DAPPERCRUD
 {
 	public class UserPasswordRepository : IUserPasswordRepository
 	{
-		private readonly DapperContext _context;
-		public UserPasswordRepository(DapperContext context)
+		// private readonly DapperContext _context;
+		private readonly string connectionString = string.Empty;
+		public UserPasswordRepository()
 		{
-			_context = context;
+			this.connectionString = DapperContext.Instance.GetDatabaseConnectionString();
 		}
 		public async Task<UserPassword> GetUserPassword(int UserID)
 		{
 			try
 			{
 				var query = "SELECT * FROM userPassword WHERE UserID = @UserID";
-				using (var connection = _context.CreateConnection())
+				using (var connection = new SqlConnection(this.connectionString))
 				{
 					var user = await connection.QuerySingleOrDefaultAsync<UserPassword>(query, new { UserID });
 					return user;
@@ -39,7 +41,7 @@ namespace DAPPERCRUD
 				parameters.Add("UserID",userPassword.UserID,System.Data.DbType.Int32);
 				parameters.Add("Password",userPassword.Password,System.Data.DbType.String);
 
-				using (var connection = _context.CreateConnection())
+				using (var connection = new SqlConnection(this.connectionString))
 				{
 					int id = await connection.QuerySingleAsync<int>(query,parameters);
 

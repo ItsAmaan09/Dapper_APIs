@@ -8,11 +8,10 @@ namespace DAPPERCRUD
 	public class UserManager
 	{
 		private IUserRepository _userRepository;
-		private readonly UserPasswordManager _userPasswordManager;
-		public UserManager(IUserRepository userRepository, UserPasswordManager userPasswordManager)
+		private  UserPasswordManager _userPasswordManager;
+		public UserManager()
 		{
-			_userRepository = userRepository;
-			_userPasswordManager = userPasswordManager;
+			this._userRepository = new UserRepository();
 		}
 		public async Task<IEnumerable<User>> GetUsers()
 		{
@@ -41,6 +40,7 @@ namespace DAPPERCRUD
 			if (user == null) { throw new Exception("User not found"); }
 			else
 			{
+				this._userPasswordManager = new UserPasswordManager();
 				var result = await _userPasswordManager.ValidateUserCredentials(user.UserID, userLogin.Password);
 				if (!result) { throw new Exception("Password is invalid"); }
 			}

@@ -13,16 +13,18 @@ namespace DAPPERCRUD
 	[Route("api/v1/[controller]")]
 	public class CustomerController : ControllerBase
 	{
-		private readonly CustomerManager _customerManager;
-		public CustomerController(CustomerManager customerManager)
+		private  CustomerManager _customerManager;
+		public CustomerController()
 		{
-			_customerManager = customerManager;
+
+
 		}
 		[HttpGet]
 		public async Task<IActionResult> GetCustomers()
 		{
 			try
 			{
+				this._customerManager = new CustomerManager();
 				var response = await _customerManager.GetCustomers();
 				return Ok(response);
 			}
@@ -31,65 +33,65 @@ namespace DAPPERCRUD
 				return BadRequest(ex.Message);
 			}
 		}
-		[HttpGet("{id}", Name = "CustomerById")]
-		public async Task<IActionResult> GetCustomerDetails(int id)
-		{
-			try
-			{
-				var response = await _customerManager.GetCustomerDetails(id);
-				if (response == null) return NotFound();
-				return Ok(response);
-			}
-			catch (System.Exception ex)
-			{
-				return BadRequest(ex.Message);
-			}
-		}
+		// [HttpGet("{id}", Name = "CustomerById")]
+		// public async Task<IActionResult> GetCustomerDetails(int id)
+		// {
+		// 	try
+		// 	{
+		// 		var response = await _customerManager.GetCustomerDetails(id);
+		// 		if (response == null) return NotFound();
+		// 		return Ok(response);
+		// 	}
+		// 	catch (System.Exception ex)
+		// 	{
+		// 		return BadRequest(ex.Message);
+		// 	}
+		// }
 
-		[HttpPost]
-		public async Task<IActionResult> AddCustomer(Customer customer)
-		{
-			try
-			{
-				var response = await _customerManager.AddCustomer(customer);
-				return Ok(response);
-			}
-			catch (System.Exception ex)
-			{
+		// [HttpPost]
+		// public async Task<IActionResult> AddCustomer(Customer customer)
+		// {
+		// 	try
+		// 	{
+		// 		var response = await _customerManager.AddCustomer(customer);
+		// 		return Ok(response);
+		// 	}
+		// 	catch (System.Exception ex)
+		// 	{
 
-				return BadRequest(ex.Message);
-			}
-		}
-		[HttpPut("{id}")]
-		public async Task<IActionResult> UpdateCustomer(int id, Customer customer)
-		{
-			try
-			{
-				// var isCustomerExists = await _customerManager.GetCustomerDetails(id);
-				// if (isCustomerExists == null) return NotFound();
-				await _customerManager.UpdateCustomer(id, customer);
-				return NoContent();
-			}
-			catch (System.Exception ex)
-			{
-				return BadRequest(ex.Message);
-			}
-		}
+		// 		return BadRequest(ex.Message);
+		// 	}
+		// }
+		// [HttpPut("{id}")]
+		// public async Task<IActionResult> UpdateCustomer(int id, Customer customer)
+		// {
+		// 	try
+		// 	{
+		// 		// var isCustomerExists = await _customerManager.GetCustomerDetails(id);
+		// 		// if (isCustomerExists == null) return NotFound();
+		// 		await _customerManager.UpdateCustomer(id, customer);
+		// 		return NoContent();
+		// 	}
+		// 	catch (System.Exception ex)
+		// 	{
+		// 		return BadRequest(ex.Message);
+		// 	}
+		// }
 
-		[HttpDelete("{id}")]
-		public async Task<IActionResult> DeleteCustomer(int id)
-		{
-			try
-			{
-				var isCustomerExists = await _customerManager.GetCustomerDetails(id);
-				if (isCustomerExists == null) return NotFound();
-				await _customerManager.DeleteCustomer(id);
-				return NoContent();
-			}
-			catch (System.Exception ex)
-			{
-				return BadRequest(ex.Message);
-			}
-		}
+		// [HttpDelete("{id}")]
+		// public async Task<IActionResult> DeleteCustomer(int id)
+		// {
+		// 	try
+		// 	{
+		// 		var isCustomerExists = await _customerManager.GetCustomerDetails(id);
+		// 		if (isCustomerExists == null) return NotFound();
+		// 		await _customerManager.DeleteCustomer(id);
+		// 		return NoContent();
+		// 	}
+		// 	catch (System.Exception ex)
+		// 	{
+		// 		return BadRequest(ex.Message);
+		// 	}
+		// }
 	}
 }

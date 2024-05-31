@@ -13,10 +13,9 @@ namespace DAPPERCRUD
 	public class AuthController : ControllerBase
 	{
 		IConfiguration _configuration;
-		private readonly UserManager _userManager;
-		public AuthController(UserManager userManager, IConfiguration configuration)
+		private  UserManager _userManager;
+		public AuthController(IConfiguration configuration)
 		{
-			_userManager = userManager;
 			_configuration = configuration;
 		}
 
@@ -26,9 +25,10 @@ namespace DAPPERCRUD
 		{
 			try
 			{
+				this._userManager = new UserManager();
 				await _userManager.IsUserVerified(model);
 
-				var key = Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]);
+				var key = Encoding.ASCII.GetBytes(_configuration["JWT:Key"]);
 
 				var tokenDescriptor = new SecurityTokenDescriptor
 				{
@@ -38,8 +38,8 @@ namespace DAPPERCRUD
 					}),
 					Expires = DateTime.UtcNow.AddHours(1),
 					SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),
-					Issuer = _configuration["Jwt:Issuer"],
-					Audience = _configuration["Jwt:Audience"]
+					Issuer = _configuration["JWT:Issuer"],
+					Audience = _configuration["JWT:Audience"]
 				};
 
 				var tokenHandler = new JwtSecurityTokenHandler();

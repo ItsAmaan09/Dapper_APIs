@@ -6,13 +6,34 @@ namespace DAPPERCRUD;
 
 public class DapperContext
 {
-	private readonly IConfiguration _configuration;
-	private readonly string _connectionString;
-	public DapperContext(IConfiguration configuration)
+	private static DapperContext _instance;
+	private IConfiguration _configuration;
+	public static DapperContext Instance
 	{
-		_configuration = configuration;
-		_connectionString = _configuration.GetConnectionString("SqlConnection");
+		get
+		{
+			if (_instance == null)
+			{
+				_instance = new DapperContext();
+			}
+			return _instance;
+		}
 	}
-	public IDbConnection CreateConnection() => new SqlConnection(_connectionString);
+	public void Initialize(IConfiguration configuration)
+	{
+		this._configuration = configuration;
+	}
+
+	public string GetDatabaseConnectionString()
+	{
+		return this._configuration.GetConnectionString("SqlConnection");
+	}
+	// private readonly string _connectionString;
+	// public DapperContext(IConfiguration configuration)
+	// {
+	// 	_configuration = configuration;
+	// 	_connectionString = _configuration.GetConnectionString("SqlConnection");
+	// }
+	// public IDbConnection CreateConnection() => new SqlConnection(_connectionString);
 
 }

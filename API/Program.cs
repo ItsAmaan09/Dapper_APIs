@@ -5,6 +5,7 @@ using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
+
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -13,7 +14,7 @@ builder.Services.AddSwaggerGen();
 // JWT AUTH @start
 
 // var key = Encoding.ASCII.GetBytes("this_is_a_very_secure_key_that_is_at_least_32_bytes_long!");
-var key = Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]);
+var key = Encoding.ASCII.GetBytes(builder.Configuration["JWT:Key"]);
 builder.Services.AddAuthentication(options =>
 {
 	options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -29,22 +30,35 @@ builder.Services.AddAuthentication(options =>
 		ValidateAudience = true,
 		// ValidateLifetime = false,
 		// ValidateIssuerSigningKey = true,
-		ValidIssuer = builder.Configuration["Jwt:Issuer"],
-		ValidAudience = builder.Configuration["Jwt:Audience"],
+		ValidIssuer = builder.Configuration["JWT:Issuer"],
+		ValidAudience = builder.Configuration["JWT:Audience"],
 		IssuerSigningKey = new SymmetricSecurityKey(key)
+	};
+	options.Events = new JwtBearerEvents
+	{
+		OnAuthenticationFailed = context =>
+		{
+			Console.WriteLine("OnAuthenticationFailed: " + context.Exception.Message);
+			return Task.CompletedTask;
+		},
+		OnTokenValidated = context =>
+		{
+			Console.WriteLine("OnTokenValidated: " + context.SecurityToken);
+			return Task.CompletedTask;
+		}
 	};
 });
 builder.Services.AddAuthorization();
 // JWT AUTH @end
 
-builder.Services.AddSingleton<DapperContext>();
-builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
-builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<IUserPasswordRepository, UserPasswordRepository>();
+// builder.Services.AddSingleton<DapperContext>();
+// builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
+// builder.Services.AddScoped<IUserPasswordRepository, UserPasswordRepository>();
+// builder.Services.AddScoped<IUserRepository, UserRepository>();
 
-builder.Services.AddScoped<CustomerManager>();
-builder.Services.AddScoped<UserManager>();
-builder.Services.AddScoped<UserPasswordManager>();
+// builder.Services.AddScoped<CustomerManager>();
+// builder.Services.AddScoped<UserPasswordManager>();
+// builder.Services.AddScoped<UserManager>();
 
 
 builder.Services.AddControllers().AddJsonOptions(options =>
@@ -53,7 +67,9 @@ builder.Services.AddControllers().AddJsonOptions(options =>
 });
 
 var app = builder.Build();
+var configurationHelper = DapperContext.Instance;
 
+configurationHelper.Initialize(app.Configuration);
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -66,7 +82,8 @@ app.UseHttpsRedirection();
 app.UseRouting();
 
 app.UseAuthentication();
-
+// IConfiguration configuration = app.Configuration;
+// IWebHostEnvironment environment = app.Environment;
 app.UseAuthorization();
 
 app.MapControllers();

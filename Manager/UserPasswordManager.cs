@@ -11,10 +11,9 @@ namespace DAPPERCRUD
 	{
 		private IUserPasswordRepository _userPasswordRepository;
 		private readonly UserManager _userManager;
-		public UserPasswordManager(IUserPasswordRepository userPasswordRepository, UserManager userManager)
+		public UserPasswordManager()
 		{
-			_userPasswordRepository = userPasswordRepository;
-			_userManager = userManager;
+			_userPasswordRepository = new UserPasswordRepository();
 		}
 		public async Task<UserPassword> GetUserPassword(int id)
 		{
