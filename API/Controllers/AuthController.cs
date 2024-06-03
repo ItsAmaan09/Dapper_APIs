@@ -28,7 +28,7 @@ namespace DAPPERCRUD
 				this._userManager = new UserManager();
 				 _userManager.IsUserVerified(model);
 
-				var key = Encoding.ASCII.GetBytes(_configuration["JWT:Key"]);
+				var key = Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]);
 
 				var tokenDescriptor = new SecurityTokenDescriptor
 				{
@@ -38,8 +38,8 @@ namespace DAPPERCRUD
 					}),
 					Expires = DateTime.UtcNow.AddHours(1),
 					SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),
-					Issuer = _configuration["JWT:Issuer"],
-					Audience = _configuration["JWT:Audience"]
+					Issuer = _configuration["Jwt:Issuer"],
+					Audience = _configuration["Jwt:Audience"]
 				};
 
 				var tokenHandler = new JwtSecurityTokenHandler();

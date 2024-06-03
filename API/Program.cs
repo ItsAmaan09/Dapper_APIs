@@ -13,8 +13,8 @@ builder.Services.AddSwaggerGen();
 
 // JWT AUTH @start
 
-// var key = Encoding.ASCII.GetBytes("this_is_a_very_secure_key_that_is_at_least_32_bytes_long!");
-var key = Encoding.ASCII.GetBytes(builder.Configuration["JWT:Key"]);
+
+var key = Encoding.ASCII.GetBytes(builder.Configuration["Jwt:Key"]);
 builder.Services.AddAuthentication(options =>
 {
 	options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -28,11 +28,9 @@ builder.Services.AddAuthentication(options =>
 	{
 		ValidateIssuer = true,
 		ValidateAudience = true,
-		// ValidateLifetime = false,
-		// ValidateIssuerSigningKey = true,
-		ValidIssuer = builder.Configuration["JWT:Issuer"],
-		ValidAudience = builder.Configuration["JWT:Audience"],
-		IssuerSigningKey = new SymmetricSecurityKey(key)
+		ValidIssuer = builder.Configuration["Jwt:Issuer"],
+		ValidAudience = builder.Configuration["Jwt:Audience"],
+		IssuerSigningKey = new SymmetricSecurityKey(key),
 	};
 	options.Events = new JwtBearerEvents
 	{
@@ -65,7 +63,7 @@ builder.Services.AddControllers().AddJsonOptions(options =>
 {
 	options.JsonSerializerOptions.PropertyNamingPolicy = null;
 });
-
+builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true).AddEnvironmentVariables();
 var app = builder.Build();
 var configurationHelper = DapperContext.Instance;
 
@@ -82,8 +80,8 @@ app.UseHttpsRedirection();
 app.UseRouting();
 
 app.UseAuthentication();
-// IConfiguration configuration = app.Configuration;
-// IWebHostEnvironment environment = app.Environment;
+IConfiguration configuration = app.Configuration;
+IWebHostEnvironment environment = app.Environment;
 app.UseAuthorization();
 
 app.MapControllers();
