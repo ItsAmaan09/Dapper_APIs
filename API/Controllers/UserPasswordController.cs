@@ -10,10 +10,9 @@ namespace DAPPERCRUD
 	[Route("api/v1/[controller]")]
 	public class UserPasswordController : ControllerBase
 	{
-		private readonly UserPasswordManager _userPasswordManager;
-		public UserPasswordController(UserPasswordManager userPasswordManager)
+		private UserPasswordManager _userPasswordManager;
+		public UserPasswordController()
 		{
-			_userPasswordManager = userPasswordManager;
 		}
 
 		[HttpGet("{id}")]
@@ -21,6 +20,7 @@ namespace DAPPERCRUD
 		{
 			try
 			{
+				this._userPasswordManager = new UserPasswordManager();
 				var response = _userPasswordManager.GetUserPassword(id);
 				return Ok(response);
 			}
@@ -34,6 +34,8 @@ namespace DAPPERCRUD
 		{
 			try
 			{
+				this._userPasswordManager = new UserPasswordManager();
+
 				var response = _userPasswordManager.CreatePassword(userPassword);
 				return Ok(response);
 			}

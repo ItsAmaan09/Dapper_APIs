@@ -13,16 +13,17 @@ namespace DAPPERCRUD
 	[Route("api/v1/[controller]")]
 	public class UserController : ControllerBase
 	{
-		private readonly UserManager _userManager;
-		public UserController(UserManager userManager)
+		private UserManager _userManager;
+		public UserController()
 		{
-			_userManager = userManager;
+
 		}
 		[HttpGet]
 		public IActionResult GetUsers()
 		{
 			try
 			{
+				this._userManager = new UserManager();
 				var response = _userManager.GetUsers();
 				return Ok(response);
 			}
@@ -36,6 +37,7 @@ namespace DAPPERCRUD
 		{
 			try
 			{
+				this._userManager = new UserManager();
 				var response = _userManager.GetUserDetails(id);
 				return Ok(response);
 			}
@@ -49,6 +51,7 @@ namespace DAPPERCRUD
 		{
 			try
 			{
+				this._userManager = new UserManager();
 				var response = _userManager.AddUser(user);
 				return Ok(response);
 			}
