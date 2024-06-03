@@ -9,7 +9,6 @@ namespace DAPPERCRUD
 {
 	public class UserPasswordRepository : IUserPasswordRepository
 	{
-		// private readonly DapperContext _context;
 		private readonly string connectionString = string.Empty;
 		public UserPasswordRepository()
 		{

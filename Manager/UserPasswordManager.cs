@@ -10,7 +10,7 @@ namespace DAPPERCRUD
 	public class UserPasswordManager
 	{
 		private IUserPasswordRepository _userPasswordRepository;
-		private readonly UserManager _userManager;
+		private UserManager _userManager;
 		public UserPasswordManager()
 		{
 			_userPasswordRepository = new UserPasswordRepository();
@@ -40,6 +40,7 @@ namespace DAPPERCRUD
 
 		public bool IsUserExists(UserPassword userPassword)
 		{
+			this._userManager = new UserManager();
 			var result =  _userManager.GetUserDetails(userPassword.UserID);
 			if (result == null) { return false; }
 			return true;

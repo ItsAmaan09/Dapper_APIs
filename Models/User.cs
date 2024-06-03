@@ -15,15 +15,4 @@ namespace DAPPERCRUD
 		public string EmailAddress { get; set; }
 		public string MobileNumber { get; set; }
 	}
-	public class UserPassword
-	{
-		public int UserPasswordID { get; set; }
-		public int UserID { get; set; }
-		public string Password { get; set; }
-	}
-	public class UserLogin
-	{
-		public string Username { get; set; }
-		public string Password { get; set; }
-	}
 }

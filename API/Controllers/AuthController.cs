@@ -21,12 +21,12 @@ namespace DAPPERCRUD
 
 		[AllowAnonymous]
 		[HttpPost("Login")]
-		public IActionResult Login(UserLogin model)
+		public IActionResult Login(UserLogin userLogin)
 		{
 			try
 			{
 				this._userManager = new UserManager();
-				 _userManager.IsUserVerified(model);
+				 _userManager.IsUserVerified(userLogin);
 
 				var key = Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]);
 
@@ -34,7 +34,7 @@ namespace DAPPERCRUD
 				{
 					Subject = new ClaimsIdentity(new Claim[]
 					{
-						new Claim(ClaimTypes.Name, model.Username)
+						new Claim(ClaimTypes.Name, userLogin.Username)
 					}),
 					Expires = DateTime.UtcNow.AddHours(1),
 					SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),

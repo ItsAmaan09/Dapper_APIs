@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,9 +12,9 @@ namespace DAPPERCRUD
 		private UserManager _userManager;
 		public UserController()
 		{
-
 		}
-		[HttpGet]
+
+		[HttpGet(Name = "GetUsers")]
 		public IActionResult GetUsers()
 		{
 			try
@@ -32,7 +28,8 @@ namespace DAPPERCRUD
 				return BadRequest(ex.Message);
 			}
 		}
-		[HttpGet("{id}")]
+
+		[HttpGet("{id}", Name = "GetUserById")]
 		public IActionResult GetUserDetails(int id)
 		{
 			try
@@ -46,7 +43,9 @@ namespace DAPPERCRUD
 				return BadRequest(ex.Message);
 			}
 		}
-		[HttpPost]
+
+		[AllowAnonymous]
+		[HttpPost(Name = "AddUser")]
 		public IActionResult AddUser(User user)
 		{
 			try
@@ -58,7 +57,6 @@ namespace DAPPERCRUD
 			catch (System.Exception ex)
 			{
 				return BadRequest(ex);
-				throw;
 			}
 		}
 	}

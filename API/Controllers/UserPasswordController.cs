@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DAPPERCRUD
 {
-	[Authorize]
+	// [Authorize]
 
 	[ApiController]
 	[Route("api/v1/[controller]")]
@@ -15,7 +15,7 @@ namespace DAPPERCRUD
 		{
 		}
 
-		[HttpGet("{id}")]
+		[HttpGet("{id}",Name = "GetUserPassword")]
 		public IActionResult GetUserPassword(int id)
 		{
 			try
@@ -29,13 +29,13 @@ namespace DAPPERCRUD
 				return BadRequest(ex.Message);
 			}
 		}
-		[HttpPost]
+
+		[HttpPost(Name = "CreatePassword")]
 		public IActionResult CreatePassword(UserPassword userPassword)
 		{
 			try
 			{
 				this._userPasswordManager = new UserPasswordManager();
-
 				var response = _userPasswordManager.CreatePassword(userPassword);
 				return Ok(response);
 			}

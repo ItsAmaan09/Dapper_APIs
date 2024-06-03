@@ -1,14 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace DAPPERCRUD
 {
 	public class UserManager
 	{
 		private IUserRepository _userRepository;
-		private  UserPasswordManager _userPasswordManager;
+		private UserPasswordManager _userPasswordManager;
 		public UserManager()
 		{
 			this._userRepository = new UserRepository();
