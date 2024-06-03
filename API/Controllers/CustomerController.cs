@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DAPPERCRUD
 {
+	[Authorize]
 	[ApiController]
 	[Route("api/v1/[controller]")]
 	public class CustomerController : ControllerBase
@@ -18,7 +19,6 @@ namespace DAPPERCRUD
 
 
 		}
-		[Authorize]
 		[HttpGet]
 		public IActionResult GetCustomers()
 		{

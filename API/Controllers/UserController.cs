@@ -2,10 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DAPPERCRUD
 {
+	[Authorize]
+
 	[ApiController]
 	[Route("api/v1/[controller]")]
 	public class UserController : ControllerBase
@@ -20,7 +23,7 @@ namespace DAPPERCRUD
 		{
 			try
 			{
-				var response =  _userManager.GetUsers();
+				var response = _userManager.GetUsers();
 				return Ok(response);
 			}
 			catch (System.Exception ex)
@@ -33,7 +36,7 @@ namespace DAPPERCRUD
 		{
 			try
 			{
-				var response =  _userManager.GetUserDetails(id);
+				var response = _userManager.GetUserDetails(id);
 				return Ok(response);
 			}
 			catch (System.Exception ex)
@@ -46,7 +49,7 @@ namespace DAPPERCRUD
 		{
 			try
 			{
-				var response =  _userManager.AddUser(user);
+				var response = _userManager.AddUser(user);
 				return Ok(response);
 			}
 			catch (System.Exception ex)

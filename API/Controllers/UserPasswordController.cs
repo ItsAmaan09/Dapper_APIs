@@ -1,8 +1,11 @@
 
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DAPPERCRUD
 {
+	[Authorize]
+
 	[ApiController]
 	[Route("api/v1/[controller]")]
 	public class UserPasswordController : ControllerBase
@@ -18,7 +21,7 @@ namespace DAPPERCRUD
 		{
 			try
 			{
-				var response =  _userPasswordManager.GetUserPassword(id);
+				var response = _userPasswordManager.GetUserPassword(id);
 				return Ok(response);
 			}
 			catch (System.Exception ex)
@@ -31,7 +34,7 @@ namespace DAPPERCRUD
 		{
 			try
 			{
-				var response =  _userPasswordManager.CreatePassword(userPassword);
+				var response = _userPasswordManager.CreatePassword(userPassword);
 				return Ok(response);
 			}
 			catch (System.Exception ex)
