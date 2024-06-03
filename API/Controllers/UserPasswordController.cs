@@ -13,31 +13,31 @@ namespace DAPPERCRUD
 			_userPasswordManager = userPasswordManager;
 		}
 
-		// [HttpGet("{id}")]
-		// public async Task<IActionResult> GetUserPassword(int id)
-		// {
-		// 	try
-		// 	{
-		// 		var response = await _userPasswordManager.GetUserPassword(id);
-		// 		return Ok(response);
-		// 	}
-		// 	catch (System.Exception ex)
-		// 	{
-		// 		return BadRequest(ex.Message);
-		// 	}
-		// }
-		// [HttpPost]
-		// public async Task<IActionResult> CreatePassword(UserPassword userPassword)
-		// {
-		// 	try
-		// 	{
-		// 		var response = await _userPasswordManager.CreatePassword(userPassword);
-		// 		return Ok(response);
-		// 	}
-		// 	catch (System.Exception ex)
-		// 	{
-		// 		return BadRequest(ex.Message);
-		// 	}
-		// }
+		[HttpGet("{id}")]
+		public IActionResult GetUserPassword(int id)
+		{
+			try
+			{
+				var response =  _userPasswordManager.GetUserPassword(id);
+				return Ok(response);
+			}
+			catch (System.Exception ex)
+			{
+				return BadRequest(ex.Message);
+			}
+		}
+		[HttpPost]
+		public IActionResult CreatePassword(UserPassword userPassword)
+		{
+			try
+			{
+				var response =  _userPasswordManager.CreatePassword(userPassword);
+				return Ok(response);
+			}
+			catch (System.Exception ex)
+			{
+				return BadRequest(ex.Message);
+			}
+		}
 	}
 }

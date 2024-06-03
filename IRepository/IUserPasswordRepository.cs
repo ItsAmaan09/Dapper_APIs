@@ -7,7 +7,7 @@ namespace DAPPERCRUD
 {
 	public interface IUserPasswordRepository
 	{
-		public Task<UserPassword> GetUserPassword(int userID);
-		public Task<int> CreatePassword(UserPassword userPassword);
+		public UserPassword GetUserPassword(int userID);
+		public int CreatePassword(UserPassword userPassword);
 	}
 }

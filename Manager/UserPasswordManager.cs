@@ -15,21 +15,21 @@ namespace DAPPERCRUD
 		{
 			_userPasswordRepository = new UserPasswordRepository();
 		}
-		public async Task<UserPassword> GetUserPassword(int id)
+		public UserPassword GetUserPassword(int id)
 		{
-			var user = await _userPasswordRepository.GetUserPassword(id);
+			var user =  _userPasswordRepository.GetUserPassword(id);
 			return user;
 		}
-		public async Task<int> CreatePassword(UserPassword userPassword)
+		public int CreatePassword(UserPassword userPassword)
 		{
 			try
 			{
-				if (!await IsUserExists(userPassword))
+				if (!IsUserExists(userPassword))
 				{
 					throw new Exception("User not found");
 				}
 				userPassword.Password = passwordHash(userPassword.Password);
-				var id = await _userPasswordRepository.CreatePassword(userPassword);
+				var id =  _userPasswordRepository.CreatePassword(userPassword);
 				return id;
 			}
 			catch (System.Exception ex)
@@ -38,9 +38,9 @@ namespace DAPPERCRUD
 			}
 		}
 
-		public async Task<bool> IsUserExists(UserPassword userPassword)
+		public bool IsUserExists(UserPassword userPassword)
 		{
-			var result = await _userManager.GetUserDetails(userPassword.UserID);
+			var result =  _userManager.GetUserDetails(userPassword.UserID);
 			if (result == null) { return false; }
 			return true;
 		}
@@ -55,9 +55,9 @@ namespace DAPPERCRUD
 			return BCrypt.Net.BCrypt.Verify(enteredPassword, storedHashedPassword);
 		}
 
-		public async Task<bool> ValidateUserCredentials(int userID, string enteredPassword)
+		public bool ValidateUserCredentials(int userID, string enteredPassword)
 		{
-			var userPassword = await GetUserPassword(userID);
+			var userPassword =  GetUserPassword(userID);
 			if (userPassword == null) { return false; }
 			bool isPasswordValid = verifyPassword(enteredPassword, userPassword.Password);
 			return isPasswordValid;

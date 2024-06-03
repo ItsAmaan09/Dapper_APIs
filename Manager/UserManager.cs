@@ -13,35 +13,35 @@ namespace DAPPERCRUD
 		{
 			this._userRepository = new UserRepository();
 		}
-		public async Task<IEnumerable<User>> GetUsers()
+		public IEnumerable<User> GetUsers()
 		{
-			var users = await _userRepository.GetUsers();
+			var users =  _userRepository.GetUsers();
 			return users.ToList();
 		}
-		public async Task<User> GetUserDetails(int id)
+		public User GetUserDetails(int id)
 		{
-			var user = await _userRepository.GetUserDetails(id);
+			var user =  _userRepository.GetUserDetails(id);
 			return user;
 		}
-		public async Task<User> GetUserByUsername(string name)
+		public User GetUserByUsername(string name)
 		{
-			var user = await _userRepository.GetUserByUsername(name);
+			var user =  _userRepository.GetUserByUsername(name);
 			return user;
 		}
-		public async Task<User> AddUser(User user)
+		public User AddUser(User user)
 		{
-			var userCreated = await _userRepository.AddUser(user);
+			var userCreated =  _userRepository.AddUser(user);
 			return userCreated;
 		}
 
-		public async Task IsUserVerified(UserLogin userLogin)
+		public void IsUserVerified(UserLogin userLogin)
 		{
-			var user = await GetUserByUsername(userLogin.Username);
+			var user =  GetUserByUsername(userLogin.Username);
 			if (user == null) { throw new Exception("User not found"); }
 			else
 			{
 				this._userPasswordManager = new UserPasswordManager();
-				var result = await _userPasswordManager.ValidateUserCredentials(user.UserID, userLogin.Password);
+				var result =  _userPasswordManager.ValidateUserCredentials(user.UserID, userLogin.Password);
 				if (!result) { throw new Exception("Password is invalid"); }
 			}
 		}

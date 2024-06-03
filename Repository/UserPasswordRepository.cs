@@ -15,14 +15,14 @@ namespace DAPPERCRUD
 		{
 			this.connectionString = DapperContext.Instance.GetDatabaseConnectionString();
 		}
-		public async Task<UserPassword> GetUserPassword(int UserID)
+		public UserPassword GetUserPassword(int UserID)
 		{
 			try
 			{
 				var query = "SELECT * FROM userPassword WHERE UserID = @UserID";
 				using (var connection = new SqlConnection(this.connectionString))
 				{
-					var user = await connection.QuerySingleOrDefaultAsync<UserPassword>(query, new { UserID });
+					var user =  connection.QuerySingleOrDefault<UserPassword>(query, new { UserID });
 					return user;
 				}
 			}
@@ -31,7 +31,7 @@ namespace DAPPERCRUD
 				throw;
 			}
 		}
-		public async Task<int> CreatePassword(UserPassword userPassword)
+		public int CreatePassword(UserPassword userPassword)
 		{
 			try
 			{
@@ -43,7 +43,7 @@ namespace DAPPERCRUD
 
 				using (var connection = new SqlConnection(this.connectionString))
 				{
-					int id = await connection.QuerySingleAsync<int>(query,parameters);
+					int id =  connection.QuerySingle<int>(query,parameters);
 
 					return id;
 				}

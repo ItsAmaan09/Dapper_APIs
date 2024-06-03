@@ -21,12 +21,12 @@ namespace DAPPERCRUD
 
 		[AllowAnonymous]
 		[HttpPost("Login")]
-		public async Task<IActionResult> Login(UserLogin model)
+		public IActionResult Login(UserLogin model)
 		{
 			try
 			{
 				this._userManager = new UserManager();
-				await _userManager.IsUserVerified(model);
+				 _userManager.IsUserVerified(model);
 
 				var key = Encoding.ASCII.GetBytes(_configuration["JWT:Key"]);
 

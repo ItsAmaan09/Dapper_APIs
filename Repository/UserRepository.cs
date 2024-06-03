@@ -17,34 +17,34 @@ namespace DAPPERCRUD
 		{
 			this.connectionString = DapperContext.Instance.GetDatabaseConnectionString();
 		}
-		public async Task<IEnumerable<User>> GetUsers()
+		public IEnumerable<User> GetUsers()
 		{
 			var query = "SELECT * FROM Users";
 			using (var connection = new SqlConnection(this.connectionString))
 			{
-				var users = await connection.QueryAsync<User>(query);
+				var users =  connection.Query<User>(query);
 				return users.ToList();
 			}
 		}
-		public async Task<User> GetUserDetails(int UserID)
+		public User GetUserDetails(int UserID)
 		{
 			var query = "SELECT * FROM Users WHERE UserID = @UserID";
 			using (var connection = new SqlConnection(this.connectionString))
 			{
-				var user = await connection.QuerySingleOrDefaultAsync<User>(query, new { UserID });
+				var user =  connection.QuerySingleOrDefault<User>(query, new { UserID });
 				return user;
 			}
 		}
-		public async Task<User> GetUserByUsername(string UserName)
+		public User GetUserByUsername(string UserName)
 		{
 			var query = "SELECT * FROM Users WHERE UserName = @UserName";
 			using (var connection = new SqlConnection(this.connectionString))
 			{
-				var user = await connection.QuerySingleOrDefaultAsync<User>(query, new { UserName });
+				var user =  connection.QuerySingleOrDefault<User>(query, new { UserName });
 				return user;
 			}
 		}
-		public async Task<User> AddUser(User user)
+		public User AddUser(User user)
 		{
 			var query = "INSERT INTO Users (UserName,FirstName,LastName,Gender,EmailAddress,MobileNumber,IsActive,IsDeleted,CreatedBy,CreatedOn,ModifiedBy,ModifiedOn) VALUES (@UserName,@FirstName,@LastName,@Gender,@EmailAddress,@MobileNumber,1,0,@CreatedBy,@CreatedOn,@ModifiedBy,@ModifiedOn)" +
 			"SELECT CAST(SCOPE_IDENTITY() as int)";
@@ -62,7 +62,7 @@ namespace DAPPERCRUD
 
 			using (var connection = new SqlConnection(this.connectionString))
 			{
-				int id = await connection.QuerySingleAsync<int>(query, parameters);
+				int id =  connection.QuerySingle<int>(query, parameters);
 
 				var userCreated = new User
 				{

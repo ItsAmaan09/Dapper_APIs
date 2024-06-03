@@ -2,9 +2,9 @@
 
 public interface ICustomerRepository
 {
-	public Task<IEnumerable<Customer>> GetCustomers();
-	// public Task<Customer> GetCustomerDetails(int id);
-	// public Task<Customer> AddCustomer(Customer customer);
-	// public Task UpdateCustomer(int id,Customer customer);
-	// public Task DeleteCustomer(int id);
+	public IEnumerable<Customer> GetCustomers();
+	public Customer GetCustomerDetails(int id);
+	public Customer AddCustomer(Customer customer);
+	public void UpdateCustomer(int id,Customer customer);
+	public void DeleteCustomer(int id);
 }

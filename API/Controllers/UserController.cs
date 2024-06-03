@@ -15,45 +15,45 @@ namespace DAPPERCRUD
 		{
 			_userManager = userManager;
 		}
-		// [HttpGet]
-		// public async Task<IActionResult> GetUsers()
-		// {
-		// 	try
-		// 	{
-		// 		var response = await _userManager.GetUsers();
-		// 		return Ok(response);
-		// 	}
-		// 	catch (System.Exception ex)
-		// 	{
-		// 		return BadRequest(ex.Message);
-		// 	}
-		// }
-		// [HttpGet("{id}")]
-		// public async Task<IActionResult> GetUserDetails(int id)
-		// {
-		// 	try
-		// 	{
-		// 		var response = await _userManager.GetUserDetails(id);
-		// 		return Ok(response);
-		// 	}
-		// 	catch (System.Exception ex)
-		// 	{
-		// 		return BadRequest(ex.Message);
-		// 	}
-		// }
-		// [HttpPost]
-		// public async Task<IActionResult> AddUser(User user)
-		// {
-		// 	try
-		// 	{
-		// 		var response = await _userManager.AddUser(user);
-		// 		return Ok(response);
-		// 	}
-		// 	catch (System.Exception ex)
-		// 	{
-		// 		return BadRequest(ex);
-		// 		throw;
-		// 	}
-		// }
+		[HttpGet]
+		public IActionResult GetUsers()
+		{
+			try
+			{
+				var response =  _userManager.GetUsers();
+				return Ok(response);
+			}
+			catch (System.Exception ex)
+			{
+				return BadRequest(ex.Message);
+			}
+		}
+		[HttpGet("{id}")]
+		public IActionResult GetUserDetails(int id)
+		{
+			try
+			{
+				var response =  _userManager.GetUserDetails(id);
+				return Ok(response);
+			}
+			catch (System.Exception ex)
+			{
+				return BadRequest(ex.Message);
+			}
+		}
+		[HttpPost]
+		public IActionResult AddUser(User user)
+		{
+			try
+			{
+				var response =  _userManager.AddUser(user);
+				return Ok(response);
+			}
+			catch (System.Exception ex)
+			{
+				return BadRequest(ex);
+				throw;
+			}
+		}
 	}
 }
