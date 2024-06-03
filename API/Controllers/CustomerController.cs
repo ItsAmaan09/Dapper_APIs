@@ -8,24 +8,24 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DAPPERCRUD
 {
-	[Authorize]
 	[ApiController]
 	[Route("api/v1/[controller]")]
 	public class CustomerController : ControllerBase
 	{
-		private  CustomerManager _customerManager;
+		private CustomerManager _customerManager;
 		public CustomerController()
 		{
 
 
 		}
+		[Authorize]
 		[HttpGet]
 		public IActionResult GetCustomers()
 		{
 			try
 			{
 				this._customerManager = new CustomerManager();
-				var response =  _customerManager.GetCustomers();
+				var response = _customerManager.GetCustomers();
 				return Ok(response);
 			}
 			catch (System.Exception ex)
@@ -38,7 +38,8 @@ namespace DAPPERCRUD
 		{
 			try
 			{
-				var response =  _customerManager.GetCustomerDetails(id);
+				this._customerManager = new CustomerManager();
+				var response = _customerManager.GetCustomerDetails(id);
 				if (response == null) return NotFound();
 				return Ok(response);
 			}
@@ -53,7 +54,8 @@ namespace DAPPERCRUD
 		{
 			try
 			{
-				var response =  _customerManager.AddCustomer(customer);
+				this._customerManager = new CustomerManager();
+				var response = _customerManager.AddCustomer(customer);
 				return Ok(response);
 			}
 			catch (System.Exception ex)
@@ -69,7 +71,8 @@ namespace DAPPERCRUD
 			{
 				// var isCustomerExists =  _customerManager.GetCustomerDetails(id);
 				// if (isCustomerExists == null) return NotFound();
-				 _customerManager.UpdateCustomer(id, customer);
+				this._customerManager = new CustomerManager();
+				_customerManager.UpdateCustomer(id, customer);
 				return NoContent();
 			}
 			catch (System.Exception ex)
@@ -83,9 +86,10 @@ namespace DAPPERCRUD
 		{
 			try
 			{
-				var isCustomerExists =  _customerManager.GetCustomerDetails(id);
+				this._customerManager = new CustomerManager();
+				var isCustomerExists = _customerManager.GetCustomerDetails(id);
 				if (isCustomerExists == null) return NotFound();
-				 _customerManager.DeleteCustomer(id);
+				_customerManager.DeleteCustomer(id);
 				return NoContent();
 			}
 			catch (System.Exception ex)
