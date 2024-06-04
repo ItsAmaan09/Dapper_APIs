@@ -1,0 +1,4 @@
+{
+    "connectionString": "Data Source=.\\SQLEXPRESS; Initial Catalog=DapperECOM; User ID=sa; Password=admin@123; TrustServerCertificate=True;",
+    "logFilePath": "./execution_log.txt"
+}
