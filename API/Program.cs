@@ -59,6 +59,7 @@ builder.Services.AddAuthorization();
 // builder.Services.AddScoped<UserManager>();
 
 
+builder.Services.AddControllers().AddNewtonsoftJson();
 builder.Services.AddControllers().AddJsonOptions(options =>
 {
 	options.JsonSerializerOptions.PropertyNamingPolicy = null;
@@ -66,7 +67,6 @@ builder.Services.AddControllers().AddJsonOptions(options =>
 builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true).AddEnvironmentVariables();
 var app = builder.Build();
 var configurationHelper = DapperContext.Instance;
-
 configurationHelper.Initialize(app.Configuration);
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

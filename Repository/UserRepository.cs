@@ -46,14 +46,14 @@ namespace DAPPERCRUD
 				throw;
 			}
 		}
-		public User GetUserByUsername(string UserName)
+		public User GetUserByUsernameOrEmail(string UserName,string? EmailAddress)
 		{
 			try
 			{
-				var query = "SELECT * FROM Users WHERE UserName = @UserName";
+				var query = "SELECT * FROM Users WHERE UserName = @UserName OR EmailAddress = @EmailAddress";
 				using (var connection = new SqlConnection(this.connectionString))
 				{
-					var user = connection.QuerySingleOrDefault<User>(query, new { UserName });
+					var user = connection.QuerySingleOrDefault<User>(query, new { UserName,EmailAddress });
 					return user;
 				}
 

@@ -14,5 +14,12 @@ namespace DAPPERCRUD
 		public string Gender { get; set; }
 		public string EmailAddress { get; set; }
 		public string MobileNumber { get; set; }
+		public bool IsValid()
+		{
+			return !string.IsNullOrWhiteSpace(this.UserName)
+			&& !string.IsNullOrWhiteSpace(this.FirstName)
+			&& !string.IsNullOrWhiteSpace(this.LastName)
+			&& !string.IsNullOrWhiteSpace(this.EmailAddress);
+		}
 	}
 }
