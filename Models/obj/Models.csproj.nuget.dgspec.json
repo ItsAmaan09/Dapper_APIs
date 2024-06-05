@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Models\\Models.csproj": {}
+    "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Models\\Models.csproj": {}
   },
   "projects": {
-    "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Models\\Models.csproj": {
+    "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Models\\Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Models\\Models.csproj",
+        "projectUniqueName": "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Models\\Models.csproj",
         "projectName": "Models",
-        "projectPath": "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Models\\Models.csproj",
+        "projectPath": "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Models\\Models.csproj",
         "packagesPath": "C:\\Users\\Amaan\\.nuget\\packages\\",
-        "outputPath": "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Models\\obj\\",
+        "outputPath": "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Models\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Amaan\\AppData\\Roaming\\NuGet\\NuGet.Config",

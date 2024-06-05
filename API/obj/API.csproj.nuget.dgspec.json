@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\API\\API.csproj": {}
+    "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\API\\API.csproj": {}
   },
   "projects": {
-    "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\API\\API.csproj": {
+    "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\API\\API.csproj",
+        "projectUniqueName": "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\API\\API.csproj",
+        "projectPath": "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\API\\API.csproj",
         "packagesPath": "C:\\Users\\Amaan\\.nuget\\packages\\",
-        "outputPath": "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\API\\obj\\",
+        "outputPath": "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Amaan\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,17 +28,17 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Context\\Context.csproj": {
-                "projectPath": "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Context\\Context.csproj"
+              "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Context\\Context.csproj": {
+                "projectPath": "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Context\\Context.csproj"
               },
-              "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\IRepository\\IRepository.csproj": {
-                "projectPath": "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\IRepository\\IRepository.csproj"
+              "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\IRepository\\IRepository.csproj": {
+                "projectPath": "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\IRepository\\IRepository.csproj"
               },
-              "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Manager\\Manager.csproj": {
-                "projectPath": "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Manager\\Manager.csproj"
+              "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Manager\\Manager.csproj": {
+                "projectPath": "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Manager\\Manager.csproj"
               },
-              "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Repository\\Repository.csproj": {
-                "projectPath": "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Repository\\Repository.csproj"
+              "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Repository\\Repository.csproj": {
+                "projectPath": "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Repository\\Repository.csproj"
               }
             }
           }
@@ -90,14 +90,14 @@
         }
       }
     },
-    "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Context\\Context.csproj": {
+    "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Context\\Context.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Context\\Context.csproj",
+        "projectUniqueName": "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Context\\Context.csproj",
         "projectName": "Context",
-        "projectPath": "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Context\\Context.csproj",
+        "projectPath": "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Context\\Context.csproj",
         "packagesPath": "C:\\Users\\Amaan\\.nuget\\packages\\",
-        "outputPath": "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Context\\obj\\",
+        "outputPath": "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Context\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Amaan\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -160,14 +160,14 @@
         }
       }
     },
-    "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\IRepository\\IRepository.csproj": {
+    "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\IRepository\\IRepository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\IRepository\\IRepository.csproj",
+        "projectUniqueName": "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\IRepository\\IRepository.csproj",
         "projectName": "IRepository",
-        "projectPath": "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\IRepository\\IRepository.csproj",
+        "projectPath": "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\IRepository\\IRepository.csproj",
         "packagesPath": "C:\\Users\\Amaan\\.nuget\\packages\\",
-        "outputPath": "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\IRepository\\obj\\",
+        "outputPath": "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\IRepository\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Amaan\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -184,8 +184,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Models\\Models.csproj": {
-                "projectPath": "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Models\\Models.csproj"
+              "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Models\\Models.csproj": {
+                "projectPath": "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Models\\Models.csproj"
               }
             }
           }
@@ -224,14 +224,14 @@
         }
       }
     },
-    "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Manager\\Manager.csproj": {
+    "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Manager\\Manager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Manager\\Manager.csproj",
+        "projectUniqueName": "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Manager\\Manager.csproj",
         "projectName": "Manager",
-        "projectPath": "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Manager\\Manager.csproj",
+        "projectPath": "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Manager\\Manager.csproj",
         "packagesPath": "C:\\Users\\Amaan\\.nuget\\packages\\",
-        "outputPath": "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Manager\\obj\\",
+        "outputPath": "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Manager\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Amaan\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -248,14 +248,14 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\IRepository\\IRepository.csproj": {
-                "projectPath": "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\IRepository\\IRepository.csproj"
+              "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\IRepository\\IRepository.csproj": {
+                "projectPath": "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\IRepository\\IRepository.csproj"
               },
-              "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Models\\Models.csproj": {
-                "projectPath": "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Models\\Models.csproj"
+              "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Models\\Models.csproj": {
+                "projectPath": "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Models\\Models.csproj"
               },
-              "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Repository\\Repository.csproj": {
-                "projectPath": "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Repository\\Repository.csproj"
+              "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Repository\\Repository.csproj": {
+                "projectPath": "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Repository\\Repository.csproj"
               }
             }
           }
@@ -300,14 +300,14 @@
         }
       }
     },
-    "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Models\\Models.csproj": {
+    "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Models\\Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Models\\Models.csproj",
+        "projectUniqueName": "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Models\\Models.csproj",
         "projectName": "Models",
-        "projectPath": "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Models\\Models.csproj",
+        "projectPath": "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Models\\Models.csproj",
         "packagesPath": "C:\\Users\\Amaan\\.nuget\\packages\\",
-        "outputPath": "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Models\\obj\\",
+        "outputPath": "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Models\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Amaan\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -360,14 +360,14 @@
         }
       }
     },
-    "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Repository\\Repository.csproj": {
+    "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Repository\\Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Repository\\Repository.csproj",
+        "projectUniqueName": "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Repository\\Repository.csproj",
         "projectName": "Repository",
-        "projectPath": "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Repository\\Repository.csproj",
+        "projectPath": "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Repository\\Repository.csproj",
         "packagesPath": "C:\\Users\\Amaan\\.nuget\\packages\\",
-        "outputPath": "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Repository\\obj\\",
+        "outputPath": "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Repository\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Amaan\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -384,14 +384,14 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Context\\Context.csproj": {
-                "projectPath": "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Context\\Context.csproj"
+              "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Context\\Context.csproj": {
+                "projectPath": "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Context\\Context.csproj"
               },
-              "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\IRepository\\IRepository.csproj": {
-                "projectPath": "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\IRepository\\IRepository.csproj"
+              "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\IRepository\\IRepository.csproj": {
+                "projectPath": "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\IRepository\\IRepository.csproj"
               },
-              "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Models\\Models.csproj": {
-                "projectPath": "E:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Models\\Models.csproj"
+              "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Models\\Models.csproj": {
+                "projectPath": "E:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Models\\Models.csproj"
               }
             }
           }

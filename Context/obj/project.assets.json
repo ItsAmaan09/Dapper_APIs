@@ -2036,11 +2036,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "e:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Context\\Context.csproj",
+      "projectUniqueName": "e:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Context\\Context.csproj",
       "projectName": "Context",
-      "projectPath": "e:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Context\\Context.csproj",
+      "projectPath": "e:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Context\\Context.csproj",
       "packagesPath": "C:\\Users\\Amaan\\.nuget\\packages\\",
-      "outputPath": "e:\\Mohammed Amaan's\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Context\\obj\\",
+      "outputPath": "e:\\Mohammed Amaan\\Dotnet Projects\\WebAPI_Projects\\Dapper_APIs\\Context\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Amaan\\AppData\\Roaming\\NuGet\\NuGet.Config",
